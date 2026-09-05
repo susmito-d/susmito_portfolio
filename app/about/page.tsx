@@ -1,4 +1,28 @@
 import Image from "next/image";
+import Accordion from "@/components/Accordion";
+
+const FAQS = [
+  {
+    question: "Why build TAISU while still in school?",
+    answer:
+      "I'd rather learn by shipping something real than wait until everything's perfect. TAISU is where I put that into practice — building products now, alongside HSC prep, instead of treating them as separate phases of life.",
+  },
+  {
+    question: "Why build everything on a phone?",
+    answer:
+      "It's what I had available, so I learned to work with it instead of waiting for a laptop. Termux, Pydroid, and a lot of patience — it's slower, but it forces good habits around planning and debugging.",
+  },
+  {
+    question: "What's Project GENESIS?",
+    answer:
+      "It's my personal roadmap toward becoming a strong AI engineer — working through Python, math foundations, and machine learning basics, one step at a time, alongside everything else I'm building.",
+  },
+  {
+    question: "What's next for TAISU?",
+    answer:
+      "Growing it from a solo project into a real company over time — shipping more products, learning faster, and eventually bringing more people into it as things scale.",
+  },
+];
 
 export default function AboutPage() {
   return (
@@ -37,13 +61,18 @@ export default function AboutPage() {
       <h2 className="heading" style={{ fontSize: 18, fontWeight: 600, marginBottom: 12 }}>
         Tools I use
       </h2>
-      <div className="flex gap-2 flex-wrap">
+      <div className="flex gap-2 flex-wrap" style={{ marginBottom: 40 }}>
         {["Termux", "Pydroid", "Python", "Pygame", "WeasyPrint"].map((tool) => (
           <span key={tool} className="tool-pill" style={{ padding: "6px 14px", borderRadius: 999, fontSize: 13 }}>
             {tool}
           </span>
         ))}
       </div>
+
+      <h2 className="heading" style={{ fontSize: 18, fontWeight: 600, marginBottom: 16 }}>
+        FAQ
+      </h2>
+      <Accordion items={FAQS} />
     </div>
   );
 }
