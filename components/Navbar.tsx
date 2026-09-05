@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Sun, Moon } from "lucide-react";
@@ -20,8 +21,15 @@ export default function Navbar() {
   return (
     <header className="glass" style={{ position: "sticky", top: 0, zIndex: 50 }}>
       <div className="container flex items-center justify-between" style={{ padding: "16px 24px" }}>
-        <Link href="/" className="heading" style={{ fontWeight: 700, fontSize: 20, color: "var(--text-primary)", textDecoration: "none" }}>
-          Susmito
+        <Link href="/" style={{ display: "flex", alignItems: "center", textDecoration: "none" }}>
+          <Image
+            src={theme === "dark" ? "/logo/logo-white.png" : "/logo/logo-black.png"}
+            alt="Susmito"
+            width={90}
+            height={30}
+            priority
+            style={{ height: 26, width: "auto" }}
+          />
         </Link>
         <nav className="hidden md:flex items-center gap-8">
           {LINKS.map((link) => (
