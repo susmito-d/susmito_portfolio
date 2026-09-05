@@ -71,6 +71,42 @@ export default function Navbar() {
           <button
             aria-label={menuOpen ? "Close menu" : "Open menu"}
             onClick={() => setMenuOpen((v) => !v)}
+            className="neu-btn lg:hidden flex items-center justify-center"
+            style={{ width: 40, height: 40, borderRadius: 12 }}
+          >
+            {menuOpen ? <X size={18} /> : <Menu size={18} />}
+          </button>
+        </div>
+      </div>
+
+      {menuOpen && (
+        <nav
+          className="glass lg:hidden flex flex-col"
+          style={{ borderTop: "1px solid var(--glass-border)", padding: "8px 24px 20px", gap: 4 }}
+        >
+          {LINKS.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              onClick={() => setMenuOpen(false)}
+              className={`nav-link ${pathname === link.href ? "active" : ""}`}
+              style={{ fontSize: 16, padding: "12px 4px" }}
+            >
+              {link.label}
+            </Link>
+          ))}
+        </nav>
+      )}
+    </header>
+  );
+}            className="neu-btn"
+            style={{ width: 40, height: 40, borderRadius: 12, display: "flex", alignItems: "center", justifyContent: "center" }}
+          >
+            {theme === "dark" ? <Sun size={18} color="var(--accent)" /> : <Moon size={18} />}
+          </button>
+          <button
+            aria-label={menuOpen ? "Close menu" : "Open menu"}
+            onClick={() => setMenuOpen((v) => !v)}
             className="neu-btn lg:hidden"
             style={{ width: 40, height: 40, borderRadius: 12, display: "flex", alignItems: "center", justifyContent: "center" }}
           >
