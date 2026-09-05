@@ -13,7 +13,7 @@ export default function CaseStudyPage({ params }: { params: { slug: string } }) 
   return (
     <div className="container" style={{ padding: "56px 24px", maxWidth: 760 }}>
       <div style={{ position: "relative", aspectRatio: "16 / 9", borderRadius: 20, overflow: "hidden", marginBottom: 32 }}>
-        <Image src="/projects/aeon-shield.jpg" alt="AEON SHIELD" fill style={{ objectFit: "cover" }} />
+        <Image src={project.image} alt={project.name} fill style={{ objectFit: "cover" }} />
       </div>
 
       <h1 className="heading" style={{ fontSize: 32, fontWeight: 700, marginBottom: 8 }}>
@@ -50,12 +50,12 @@ export default function CaseStudyPage({ params }: { params: { slug: string } }) 
 
       <div className="flex gap-4">
         {project.github && (
-          <a href={project.github} className="neu-btn" style={{ padding: "10px 20px", borderRadius: 12, textDecoration: "none", fontSize: 14 }}>
+          <a href={project.github} target="_blank" rel="noopener noreferrer" className="neu-btn" style={{ padding: "10px 20px", borderRadius: 12, textDecoration: "none", fontSize: 14 }}>
             GitHub
           </a>
         )}
         {project.demo && (
-          <a href={project.demo} className="accent-btn" style={{ padding: "10px 20px", borderRadius: 12, textDecoration: "none", fontSize: 14 }}>
+          <a href={project.demo} target="_blank" rel="noopener noreferrer" className="accent-btn" style={{ padding: "10px 20px", borderRadius: 12, textDecoration: "none", fontSize: 14 }}>
             Live demo
           </a>
         )}
