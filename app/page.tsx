@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { projects } from "@/lib/projects";
+import BubbleBackground from "@/components/BubbleBackground";
 
 const TOOLS = ["Python", "JavaScript", "Pygame", "WeasyPrint", "HTML/CSS", "Termux"];
 
@@ -10,37 +11,40 @@ export default function HomePage() {
       {/* Hero */}
       <section
         className="hero-reveal"
-        style={{ display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", padding: "96px 0 72px" }}
+        style={{ position: "relative", display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", padding: "96px 0 72px" }}
       >
-        <div style={{ position: "relative", width: 160, height: 160, marginBottom: 32 }}>
-          <div className="avatar-glow" />
-          <div
-            style={{
-              position: "relative",
-              width: 160,
-              height: 160,
-              borderRadius: "50%",
-              overflow: "hidden",
-            }}
-          >
-            <Image src="/me.jpg" alt="Susmito" fill style={{ objectFit: "cover" }} />
+        <BubbleBackground />
+        <div style={{ position: "relative", zIndex: 1, display: "flex", flexDirection: "column", alignItems: "center" }}>
+          <div style={{ position: "relative", width: 160, height: 160, marginBottom: 32 }}>
+            <div className="avatar-glow" />
+            <div
+              style={{
+                position: "relative",
+                width: 160,
+                height: 160,
+                borderRadius: "50%",
+                overflow: "hidden",
+              }}
+            >
+              <Image src="/me.jpg" alt="Susmito" fill style={{ objectFit: "cover" }} />
+            </div>
           </div>
-        </div>
 
-        <h1 className="heading" style={{ fontSize: "clamp(32px, 5vw, 56px)", fontWeight: 700, lineHeight: 1.15, marginBottom: 16 }}>
-          Hi, I'm Susmito.
-        </h1>
-        <p style={{ color: "var(--text-secondary)", fontSize: 18, maxWidth: 480, lineHeight: 1.6, marginBottom: 36 }}>
-          Founder of TAISU — building real software, solo, from Faridpur, Bangladesh.
-        </p>
+          <h1 className="heading" style={{ fontSize: "clamp(32px, 5vw, 56px)", fontWeight: 700, lineHeight: 1.15, marginBottom: 16 }}>
+            Hi, I'm Susmito.
+          </h1>
+          <p style={{ color: "var(--text-secondary)", fontSize: 18, maxWidth: 480, lineHeight: 1.6, marginBottom: 36 }}>
+            Founder of TAISU — building real software, solo, from Faridpur, Bangladesh.
+          </p>
 
-        <div className="flex gap-4">
-          <Link href="/work" className="accent-btn" style={{ padding: "12px 24px", borderRadius: 14, fontSize: 15, fontWeight: 500, textDecoration: "none", display: "inline-block" }}>
-            View my work
-          </Link>
-          <Link href="/contact" className="neu-btn" style={{ padding: "12px 24px", borderRadius: 14, fontSize: 15, fontWeight: 500, textDecoration: "none", display: "inline-block" }}>
-            Contact
-          </Link>
+          <div className="flex gap-4">
+            <Link href="/work" className="accent-btn" style={{ padding: "12px 24px", borderRadius: 14, fontSize: 15, fontWeight: 500, textDecoration: "none", display: "inline-block" }}>
+              View my work
+            </Link>
+            <Link href="/contact" className="neu-btn" style={{ padding: "12px 24px", borderRadius: 14, fontSize: 15, fontWeight: 500, textDecoration: "none", display: "inline-block" }}>
+              Contact
+            </Link>
+          </div>
         </div>
       </section>
 
