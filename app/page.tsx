@@ -1,7 +1,7 @@
+import Image from "next/image";
 import Link from "next/link";
 import { ImageIcon } from "lucide-react";
 import { projects } from "@/lib/projects";
-import Image from "next/image";
 
 const TOOLS = ["Python", "JavaScript", "Pygame", "WeasyPrint", "HTML/CSS", "Termux"];
 
@@ -13,24 +13,18 @@ export default function HomePage() {
         className="hero-reveal"
         style={{ display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", padding: "96px 0 72px" }}
       >
-        <div style={{ position: "relative", width: 120, height: 120, marginBottom: 32 }}>
+        <div style={{ position: "relative", width: 160, height: 160, marginBottom: 32 }}>
           <div className="avatar-glow" />
           <div
-            className="glass placeholder-block"
             style={{
               position: "relative",
-              width: 120,
-              height: 120,
+              width: 160,
+              height: 160,
               borderRadius: "50%",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              fontSize: 13,
-              textAlign: "center",
-              padding: 8,
+              overflow: "hidden",
             }}
           >
-            <Image src="/me.jpg" alt="Susmito" width={120} height={120} style={{ borderRadius: "50%", objectFit: "cover" }} />
+            <Image src="/me.jpg" alt="Susmito" fill style={{ objectFit: "cover" }} />
           </div>
         </div>
 
