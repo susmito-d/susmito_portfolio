@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ImageIcon } from "lucide-react";
 import { projects } from "@/lib/projects";
+import Image from "next/image";
 
 const TOOLS = ["Python", "JavaScript", "Pygame", "WeasyPrint", "HTML/CSS", "Termux"];
 
@@ -29,7 +30,7 @@ export default function HomePage() {
               padding: 8,
             }}
           >
-            Photo placeholder
+            <Image src="/me.jpg" alt="Susmito" width={120} height={120} style={{ borderRadius: "50%", objectFit: "cover" }} />
           </div>
         </div>
 
