@@ -12,7 +12,7 @@ export default function Footer() {
           <a href="https://linkedin.com/in/susmitodatta" aria-label="LinkedIn" style={{ color: "var(--text-secondary)" }}>
             <Linkedin size={18} />
           </a>
-          <a href="mailto:susmitodatta.com" aria-label="Email" style={{ color: "var(--text-secondary)" }}>
+          <a href="mailto:susmitodatta@gmail.com" aria-label="Email" style={{ color: "var(--text-secondary)" }}>
             <Mail size={18} />
           </a>
         </div>
