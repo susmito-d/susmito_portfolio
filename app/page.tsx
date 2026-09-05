@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ImageIcon } from "lucide-react";
 import { projects } from "@/lib/projects";
 
 const TOOLS = ["Python", "JavaScript", "Pygame", "WeasyPrint", "HTML/CSS", "Termux"];
@@ -53,22 +52,8 @@ export default function HomePage() {
         <div className="grid gap-6" style={{ gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))" }}>
           {projects.map((p) => (
             <Link key={p.slug} href={`/work/${p.slug}`} className="glass project-card" style={{ borderRadius: 24, padding: 20, textDecoration: "none", color: "inherit", display: "block" }}>
-              <div
-                className="placeholder-block"
-                style={{
-                  aspectRatio: "16 / 10",
-                  borderRadius: 16,
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  gap: 8,
-                  marginBottom: 16,
-                  fontSize: 13,
-                }}
-              >
-                <ImageIcon size={22} />
-                Screenshot placeholder
+              <div style={{ position: "relative", aspectRatio: "16 / 10", borderRadius: 16, overflow: "hidden", marginBottom: 16 }}>
+                <Image src="/projects/aeon-shield.jpg" alt={p.name} fill style={{ objectFit: "cover" }} />
               </div>
               <h3 className="heading" style={{ fontSize: 17, fontWeight: 600, marginBottom: 4 }}>
                 {p.name}
