@@ -8,14 +8,14 @@ export default function ContactPage() {
       </h1>
 
       <div className="glass" style={{ borderRadius: 20, padding: 28, display: "flex", flexDirection: "column", gap: 20 }}>
-        <a href="mailto:your@email.com" className="flex items-center gap-3" style={{ color: "var(--text-primary)", textDecoration: "none", fontSize: 15 }}>
+        <a href="mailto:susmitodatta@gmail.com" className="flex items-center gap-3" style={{ color: "var(--text-primary)", textDecoration: "none", fontSize: 15 }}>
           <Mail size={18} /> susmitodatta@gmail.com
         </a>
-        <a href="https://github.com/yourname" className="flex items-center gap-3" style={{ color: "var(--text-primary)", textDecoration: "none", fontSize: 15 }}>
-          <Github size={18} /> https://github.com/susmito-d
+        <a href="https://github.com/susmito-d" className="flex items-center gap-3" style={{ color: "var(--text-primary)", textDecoration: "none", fontSize: 15 }}>
+          <Github size={18} /> github.com/susmito-d
         </a>
-        <a href="https://linkedin.com/in/yourname" className="flex items-center gap-3" style={{ color: "var(--text-primary)", textDecoration: "none", fontSize: 15 }}>
-          <Linkedin size={18} /> https://www.linkedin.com/in/susmitodatta/
+        <a href="https://www.linkedin.com/in/susmitodatta/" className="flex items-center gap-3" style={{ color: "var(--text-primary)", textDecoration: "none", fontSize: 15 }}>
+          <Linkedin size={18} /> linkedin.com/in/susmitodatta
         </a>
       </div>
     </div>
