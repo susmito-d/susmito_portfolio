@@ -1,15 +1,12 @@
-
-
-Navbar · TSX
 "use client";
- 
+
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Sun, Moon, Menu, X } from "lucide-react";
 import { useTheme } from "@/lib/theme-provider";
- 
+
 const LINKS = [
   { href: "/", label: "Home" },
   { href: "/work", label: "Work" },
@@ -17,26 +14,26 @@ const LINKS = [
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
 ];
- 
+
 export default function Navbar() {
   const { theme, toggleTheme } = useTheme();
   const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
   const headerRef = useRef<HTMLElement>(null);
- 
+
   useEffect(() => {
     if (!menuOpen) return;
- 
+
     function handleOutsideClick(e: MouseEvent) {
       if (headerRef.current && !headerRef.current.contains(e.target as Node)) {
         setMenuOpen(false);
       }
     }
- 
+
     document.addEventListener("mousedown", handleOutsideClick);
     return () => document.removeEventListener("mousedown", handleOutsideClick);
   }, [menuOpen]);
- 
+
   return (
     <header ref={headerRef} className="glass" style={{ position: "sticky", top: 0, zIndex: 50 }}>
       <div className="container flex items-center justify-between" style={{ padding: "16px 24px" }}>
@@ -81,34 +78,10 @@ export default function Navbar() {
           </button>
         </div>
       </div>
- 
-      {menuOpen && (
-        <nav
-          className="glass lg:hidden"
-          style={{ borderTop: "1px solid var(--glass-border)", padding: "8px 24px 20px", display: "flex", flexDirection: "column", gap: 4 }}
-        >
-          {LINKS.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              onClick={() => setMenuOpen(false)}
-              className={`nav-link ${pathname === link.href ? "active" : ""}`}
-              style={{ fontSize: 16, padding: "12px 4px" }}
-            >
-              {link.label}
-            </Link>
-          ))}
-        </nav>
-      )}
-    </header>
-  );
-}
- 
-      </div>
 
       {menuOpen && (
         <nav
-          className="glass md:hidden"
+          className="glass lg:hidden"
           style={{ borderTop: "1px solid var(--glass-border)", padding: "8px 24px 20px", display: "flex", flexDirection: "column", gap: 4 }}
         >
           {LINKS.map((link) => (
