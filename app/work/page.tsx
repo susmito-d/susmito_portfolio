@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ImageIcon } from "lucide-react";
+import Image from "next/image";
 import { projects } from "@/lib/projects";
 
 export default function WorkPage() {
@@ -16,11 +16,8 @@ export default function WorkPage() {
             className="glass project-card"
             style={{ borderRadius: 20, padding: 20, textDecoration: "none", color: "inherit", display: "flex", gap: 20, alignItems: "center" }}
           >
-            <div
-              className="placeholder-block"
-              style={{ width: 96, height: 72, flexShrink: 0, borderRadius: 12, display: "flex", alignItems: "center", justifyContent: "center" }}
-            >
-              <ImageIcon size={20} />
+            <div style={{ position: "relative", width: 96, height: 72, flexShrink: 0, borderRadius: 12, overflow: "hidden" }}>
+              <Image src={p.image} alt={p.name} fill style={{ objectFit: "cover" }} />
             </div>
             <div>
               <h2 className="heading" style={{ fontSize: 18, fontWeight: 600, marginBottom: 4 }}>
