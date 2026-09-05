@@ -22,7 +22,7 @@ export default function CaseStudyPage({ params }: { params: { slug: string } }) 
       <p style={{ color: "var(--accent)", marginBottom: 32 }}>{project.tag}</p>
 
       {[
-        ["Problem", project.problem],
+        ["Challenges", project.challenge],
         ["Approach", project.approach],
         ["What I built", project.whatBuilt],
         ["Result / what I learned", project.result],
