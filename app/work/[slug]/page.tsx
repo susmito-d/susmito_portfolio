@@ -13,7 +13,7 @@ export default function CaseStudyPage({ params }: { params: { slug: string } }) 
   return (
     <div className="container" style={{ padding: "56px 24px", maxWidth: 760 }}>
       <div style={{ position: "relative", aspectRatio: "16 / 8", borderRadius: 20, overflow: "hidden", marginBottom: 32 }}>
-        <Image src="/projects/aeon-shield.png" alt="AEON SHIELD" fill style={{ objectFit: "cover" }} />
+        <Image src="/projects/aeon-shield.jpg" alt="AEON SHIELD" fill style={{ objectFit: "cover" }} />
       </div>
 
       <h1 className="heading" style={{ fontSize: 32, fontWeight: 700, marginBottom: 8 }}>
