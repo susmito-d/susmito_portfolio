@@ -5,7 +5,7 @@ export default function AboutPage() {
         className="glass placeholder-block"
         style={{ width: 160, height: 160, borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 13, marginBottom: 32 }}
       >
-        Photo placeholder
+        <Image src="/me.jpg" alt="Susmito" width={160} height={160} style={{ borderRadius: "50%", objectFit: "cover" }} />
       </div>
 
       <h1 className="heading" style={{ fontSize: 32, fontWeight: 700, marginBottom: 24 }}>
