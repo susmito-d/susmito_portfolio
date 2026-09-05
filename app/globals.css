@@ -18,6 +18,7 @@
   --bubble-a: 58, 123, 255;
   --bubble-b: 0, 196, 255;
   --bubble-c: 147, 51, 234;
+  --bubble-op: 0.85;
 }
 
 [data-theme="dark"] {
@@ -33,6 +34,7 @@
   --bubble-a: 0, 212, 255;
   --bubble-b: 58, 123, 255;
   --bubble-c: 168, 85, 247;
+  --bubble-op: 0.5;
 }
 
 * {
@@ -187,6 +189,34 @@ body {
 
 @media (prefers-reduced-motion: reduce) {
   .bubble-blob {
+    animation: none !important;
+  }
+}
+
+/* Page-load entrance animation */
+@keyframes page-fade-in {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.page-enter {
+  animation: page-fade-in 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* Staggered reveal for direct section children on a page */
+.page-enter > .container > section,
+.page-enter > .container {
+  animation: page-fade-in 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.page-enter > .container > section:nth-of-type(1) { animation-delay: 0.05s; }
+.page-enter > .container > section:nth-of-type(2) { animation-delay: 0.15s; }
+.page-enter > .container > section:nth-of-type(3) { animation-delay: 0.25s; }
+.page-enter > .container > section:nth-of-type(4) { animation-delay: 0.35s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .page-enter,
+  .page-enter > .container > section {
     animation: none !important;
   }
 }
