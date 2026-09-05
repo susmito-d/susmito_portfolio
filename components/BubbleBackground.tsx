@@ -1,13 +1,13 @@
-// A soft, animated gradient-bubble backdrop for hero/section backgrounds.
-// Uses blurred, drifting radial-gradient blobs colored from our own theme
-// variables (--bubble-a/b/c) so it always matches the site's color schema.
+// A soft, animated gradient-bubble backdrop, fixed to the viewport so it
+// stays centered on screen and doesn't scroll away with the page content.
+// Rendered once in the root layout so it shows behind every page.
 
 export default function BubbleBackground() {
   return (
     <div
       aria-hidden
       style={{
-        position: "absolute",
+        position: "fixed",
         inset: 0,
         overflow: "hidden",
         zIndex: 0,
@@ -22,7 +22,7 @@ export default function BubbleBackground() {
           height: 280,
           left: "30%",
           top: "35%",
-          background: "radial-gradient(circle, rgba(var(--bubble-a), 0.55) 0%, rgba(var(--bubble-a), 0) 70%)",
+          background: "radial-gradient(circle, rgba(var(--bubble-a), var(--bubble-op)) 0%, rgba(var(--bubble-a), 0) 70%)",
           animation: "bubble-move-1 14s ease-in-out infinite",
         }}
       />
@@ -33,7 +33,7 @@ export default function BubbleBackground() {
           height: 240,
           left: "65%",
           top: "30%",
-          background: "radial-gradient(circle, rgba(var(--bubble-b), 0.5) 0%, rgba(var(--bubble-b), 0) 70%)",
+          background: "radial-gradient(circle, rgba(var(--bubble-b), calc(var(--bubble-op) * 0.9)) 0%, rgba(var(--bubble-b), 0) 70%)",
           animation: "bubble-move-2 17s ease-in-out infinite",
           animationDelay: "-3s",
         }}
@@ -45,7 +45,7 @@ export default function BubbleBackground() {
           height: 220,
           left: "50%",
           top: "65%",
-          background: "radial-gradient(circle, rgba(var(--bubble-c), 0.4) 0%, rgba(var(--bubble-c), 0) 70%)",
+          background: "radial-gradient(circle, rgba(var(--bubble-c), calc(var(--bubble-op) * 0.75)) 0%, rgba(var(--bubble-c), 0) 70%)",
           animation: "bubble-move-3 12s ease-in-out infinite",
           animationDelay: "-6s",
         }}
@@ -57,7 +57,7 @@ export default function BubbleBackground() {
           height: 200,
           left: "22%",
           top: "68%",
-          background: "radial-gradient(circle, rgba(var(--bubble-a), 0.35) 0%, rgba(var(--bubble-a), 0) 70%)",
+          background: "radial-gradient(circle, rgba(var(--bubble-a), calc(var(--bubble-op) * 0.65)) 0%, rgba(var(--bubble-a), 0) 70%)",
           animation: "bubble-move-4 15s ease-in-out infinite",
           animationDelay: "-2s",
         }}
