@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import { projects } from "@/lib/projects";
-import BubbleBackground from "@/components/BubbleBackground";
 
 const TOOLS = ["Python", "JavaScript", "Pygame", "WeasyPrint", "HTML/CSS", "Termux"];
 
@@ -13,7 +12,6 @@ export default function HomePage() {
         className="hero-reveal"
         style={{ position: "relative", display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", padding: "96px 0 72px" }}
       >
-        <BubbleBackground />
         <div style={{ position: "relative", zIndex: 1, display: "flex", flexDirection: "column", alignItems: "center" }}>
           <div style={{ position: "relative", width: 160, height: 160, marginBottom: 32 }}>
             <div className="avatar-glow" />
