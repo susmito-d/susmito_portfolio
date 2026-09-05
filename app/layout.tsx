@@ -14,9 +14,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en">
       <body>
         <ThemeProvider>
-          <Navbar />
-          <main style={{ minHeight: "60vh" }}>{children}</main>
-          <Footer />
+          <div style={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}>
+            <Navbar />
+            <main style={{ flex: 1 }}>{children}</main>
+            <Footer />
+          </div>
         </ThemeProvider>
       </body>
     </html>
