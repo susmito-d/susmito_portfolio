@@ -3,7 +3,7 @@ export type Project = {
   name: string;
   tag: string;
   blurb: string;
-  problem: string;
+  challenge: string;
   approach: string;
   whatBuilt: string;
   tech: string[];
@@ -19,7 +19,7 @@ export const projects: Project[] = [
     name: "AEON SHIELD",
     tag: "Pygame · TAISU's first product",
     blurb: "A space shooter built from scratch — TAISU's first shipped product.",
-    Challenge:
+    challenge:
       "I had no traditional dev environment — every line was written, tested, and debugged on an Android phone through Termux, with no laptop and no game engine to lean on. The hardest part was a text-rendering feature that needed proper Bengali Unicode support: Android's font stack kept breaking conjunct characters, with overflow and color-bleed on top, and it took five full rewrites in a single overnight session to get right. On top of that, the game's 60+ sound assets included several corrupted files that had to be diagnosed and repaired with ffmpeg, and a dynamic alien fleet with scaling meteor spawns still had to run smoothly on limited hardware.",
     approach:
       "I split the game into independent systems from the start — state management (menu, countdown, active play, narrative, game-over), collision detection, animation, and persistence — so each piece could be built and debugged on its own. I treated the font-rendering problem as its own mini-project, iterating through five versions of the renderer until conjuncts, overflow, and color bleed were all resolved. To make up for the missing desktop workflow, I built small custom tools: ffmpeg-based repair scripts for broken audio, JSON-based save/settings persistence, and a proper .gitignore and codebase cleanup pass before the first commit.",
