@@ -1,23 +1,41 @@
 # Susmito — Portfolio
 
-## Run locally
-```
+Personal portfolio site — built to show real projects and how I build them.
+
+**Live site:** _https://susmito-portfolio.vercel.app/_
+
+## About
+
+I'm Susmito, founder of [TAISU](https://github.com/susmito-d), building software solo from Faridpur, Bangladesh — self-taught on Termux/Android, currently an HSC candidate. This site is where I show what I've actually built.
+
+## Tech stack
+
+- [Next.js](https://nextjs.org/) (App Router) + React + TypeScript
+- [Tailwind CSS](https://tailwindcss.com/)
+- [Lucide](https://lucide.dev/) icons
+- Deployed on [Vercel](https://vercel.com/)
+
+## Design
+
+Glassmorphism for content surfaces, neumorphism for interactive controls (buttons, toggles), with a light mode as primary and a dark mode toggle. Design tokens live in `app/globals.css`.
+
+## Pages
+
+- **Home** — introduction and selected work
+- **Work** — project case studies (problem, approach, what was built, result)
+- **Blog** — write-ups on what I'm learning
+- **About** — my background
+- **Contact** — how to reach me
+
+## Running locally
+
+```bash
 npm install
 npm run dev
 ```
-Open http://localhost:3000
 
-## Deploy
-Push this to a GitHub repo, then import it at https://vercel.com — it deploys with zero config.
+Then open `http://localhost:3000`.
 
-## Where to edit things
-- **Projects (Work page + Home's Selected Work + case studies):** `lib/projects.ts` — one array, edit the `problem` / `approach` / `whatBuilt` / `result` fields with your real story. Add a new object here to add another project.
-- **Blog posts:** `app/blog/page.tsx` — add entries to the `posts` array once you've written something.
-- **About text:** `app/about/page.tsx`
-- **Contact info / social links:** `app/contact/page.tsx` and `components/Footer.tsx`
-- **Colors / fonts / glass & neumorphic styles:** `app/globals.css` (top of the file has the light/dark color tokens)
-- **Placeholder images:** search for `placeholder-block` — each one is a dashed box marking where a real photo/screenshot goes. Replace with an `<img>` or `next/image` once you have real assets.
+## License
 
-## Notes
-- Dark mode toggle is in the navbar (top right), persists via `localStorage`.
-- No backend, no database — this is a fully static site. The Blog page uses a plain array; swap to MDX files later if posts get long.
+Personal project — feel free to look around, but please don't copy the content as your own.
