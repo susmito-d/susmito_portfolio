@@ -1,5 +1,5 @@
+import Image from "next/image";
 import { notFound } from "next/navigation";
-import { ImageIcon } from "lucide-react";
 import { projects } from "@/lib/projects";
 
 export function generateStaticParams() {
@@ -12,12 +12,8 @@ export default function CaseStudyPage({ params }: { params: { slug: string } }) 
 
   return (
     <div className="container" style={{ padding: "56px 24px", maxWidth: 760 }}>
-      <div
-        className="placeholder-block glass"
-        style={{ aspectRatio: "16 / 8", borderRadius: 20, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 8, marginBottom: 32 }}
-      >
-        <ImageIcon size={26} />
-        Hero image placeholder
+      <div style={{ position: "relative", aspectRatio: "16 / 8", borderRadius: 20, overflow: "hidden", marginBottom: 32 }}>
+        <Image src="/projects/aeon-shield.png" alt="AEON SHIELD" fill style={{ objectFit: "cover" }} />
       </div>
 
       <h1 className="heading" style={{ fontSize: 32, fontWeight: 700, marginBottom: 8 }}>
@@ -64,6 +60,9 @@ export default function CaseStudyPage({ params }: { params: { slug: string } }) 
           </a>
         )}
       </div>
+    </div>
+  );
+}      </div>
     </div>
   );
 }
