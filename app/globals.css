@@ -15,6 +15,9 @@
   --accent: #3a7bff;
   --neu-light: #ffffff;
   --neu-dark: #c6cbd8;
+  --bubble-a: 58, 123, 255;
+  --bubble-b: 0, 196, 255;
+  --bubble-c: 147, 51, 234;
 }
 
 [data-theme="dark"] {
@@ -27,6 +30,9 @@
   --accent: #00d4ff;
   --neu-light: #1a1f29;
   --neu-dark: #08090d;
+  --bubble-a: 0, 212, 255;
+  --bubble-b: 58, 123, 255;
+  --bubble-c: 168, 85, 247;
 }
 
 * {
@@ -147,5 +153,40 @@ body {
   .accent-btn {
     animation: none !important;
     transition: none !important;
+  }
+}
+
+/* Bubble Background */
+.bubble-blob {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border-radius: 50%;
+  mix-blend-mode: var(--bubble-blend, normal);
+  will-change: transform;
+}
+
+@keyframes bubble-move-1 {
+  0%, 100% { transform: translate(-50%, -50%) translate(0, 0) scale(1); }
+  33% { transform: translate(-50%, -50%) translate(90px, -60px) scale(1.12); }
+  66% { transform: translate(-50%, -50%) translate(-70px, 50px) scale(0.92); }
+}
+@keyframes bubble-move-2 {
+  0%, 100% { transform: translate(-50%, -50%) translate(0, 0) scale(1); }
+  33% { transform: translate(-50%, -50%) translate(-100px, 40px) scale(0.9); }
+  66% { transform: translate(-50%, -50%) translate(60px, -90px) scale(1.15); }
+}
+@keyframes bubble-move-3 {
+  0%, 100% { transform: translate(-50%, -50%) translate(0, 0) scale(1); }
+  50% { transform: translate(-50%, -50%) translate(70px, 70px) scale(1.1); }
+}
+@keyframes bubble-move-4 {
+  0%, 100% { transform: translate(-50%, -50%) translate(0, 0) scale(1); }
+  50% { transform: translate(-50%, -50%) translate(-80px, -50px) scale(0.88); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bubble-blob {
+    animation: none !important;
   }
 }
