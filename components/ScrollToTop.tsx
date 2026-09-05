@@ -7,10 +7,21 @@ export default function ScrollToTop() {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setVisible(window.scrollY > 400);
+    const onScroll = () => {
+      const pastThreshold = window.scrollY > 400;
+
+      const footer = document.getElementById("site-footer");
+      const footerInView = footer ? footer.getBoundingClientRect().top < window.innerHeight : false;
+
+      setVisible(pastThreshold && !footerInView);
+    };
     window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
     onScroll();
-    return () => window.removeEventListener("scroll", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+    };
   }, []);
 
   if (!visible) return null;
