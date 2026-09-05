@@ -52,8 +52,8 @@ export default function HomePage() {
         <div className="grid gap-6" style={{ gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))" }}>
           {projects.map((p) => (
             <Link key={p.slug} href={`/work/${p.slug}`} className="glass project-card" style={{ borderRadius: 24, padding: 20, textDecoration: "none", color: "inherit", display: "block" }}>
-              <div style={{ position: "relative", aspectRatio: "4 / 3", borderRadius: 20, overflow: "hidden", marginBottom: 32, background: "var(--bg-alt)" }}>
-                <Image src="/projects/aeon-shield.jpg" alt="AEON SHIELD" fill style={{ objectFit: "contain" }} />
+              <div style={{ position: "relative", aspectRatio: "16 / 9", borderRadius: 16, overflow: "hidden", marginBottom: 16 }}>
+                <Image src="/projects/aeon-shield.jpg" alt={p.name} fill style={{ objectFit: "cover" }} />
               </div>
               <h3 className="heading" style={{ fontSize: 17, fontWeight: 600, marginBottom: 4 }}>
                 {p.name}
