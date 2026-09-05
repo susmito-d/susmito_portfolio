@@ -28,7 +28,7 @@ export default function Navbar() {
             width={90}
             height={30}
             priority
-            style={{ height: 26, width: "auto" }}
+            style={{ height: 36, width: "auto" }}
           />
         </Link>
         <nav className="hidden md:flex items-center gap-8">
