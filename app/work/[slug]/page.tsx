@@ -62,6 +62,4 @@ export default function CaseStudyPage({ params }: { params: { slug: string } }) 
       </div>
     </div>
   );
-}    </div>
-  );
 }
