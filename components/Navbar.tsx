@@ -1,9 +1,10 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Sun, Moon } from "lucide-react";
+import { Sun, Moon, Menu, X } from "lucide-react";
 import { useTheme } from "@/lib/theme-provider";
 
 const LINKS = [
@@ -17,11 +18,12 @@ const LINKS = [
 export default function Navbar() {
   const { theme, toggleTheme } = useTheme();
   const pathname = usePathname();
+  const [menuOpen, setMenuOpen] = useState(false);
 
   return (
     <header className="glass" style={{ position: "sticky", top: 0, zIndex: 50 }}>
       <div className="container flex items-center justify-between" style={{ padding: "16px 24px" }}>
-        <Link href="/" style={{ display: "flex", alignItems: "center", textDecoration: "none" }}>
+        <Link href="/" style={{ display: "flex", alignItems: "center", textDecoration: "none" }} onClick={() => setMenuOpen(false)}>
           <Image
             src={theme === "dark" ? "/logo/logo-white.png" : "/logo/logo-black.png"}
             alt="Susmito"
@@ -43,15 +45,44 @@ export default function Navbar() {
             </Link>
           ))}
         </nav>
-        <button
-          aria-label="Toggle dark mode"
-          onClick={toggleTheme}
-          className="neu-btn"
-          style={{ width: 40, height: 40, borderRadius: 12, display: "flex", alignItems: "center", justifyContent: "center" }}
-        >
-          {theme === "dark" ? <Sun size={18} color="var(--accent)" /> : <Moon size={18} />}
-        </button>
+        <div className="flex items-center gap-3">
+          <button
+            aria-label="Toggle dark mode"
+            onClick={toggleTheme}
+            className="neu-btn"
+            style={{ width: 40, height: 40, borderRadius: 12, display: "flex", alignItems: "center", justifyContent: "center" }}
+          >
+            {theme === "dark" ? <Sun size={18} color="var(--accent)" /> : <Moon size={18} />}
+          </button>
+          <button
+            aria-label={menuOpen ? "Close menu" : "Open menu"}
+            onClick={() => setMenuOpen((v) => !v)}
+            className="neu-btn md:hidden"
+            style={{ width: 40, height: 40, borderRadius: 12, display: "flex", alignItems: "center", justifyContent: "center" }}
+          >
+            {menuOpen ? <X size={18} /> : <Menu size={18} />}
+          </button>
+        </div>
       </div>
+
+      {menuOpen && (
+        <nav
+          className="glass md:hidden"
+          style={{ borderTop: "1px solid var(--glass-border)", padding: "8px 24px 20px", display: "flex", flexDirection: "column", gap: 4 }}
+        >
+          {LINKS.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              onClick={() => setMenuOpen(false)}
+              className={`nav-link ${pathname === link.href ? "active" : ""}`}
+              style={{ fontSize: 16, padding: "12px 4px" }}
+            >
+              {link.label}
+            </Link>
+          ))}
+        </nav>
+      )}
     </header>
   );
 }
