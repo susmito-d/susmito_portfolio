@@ -6,10 +6,10 @@ export default function Footer() {
       <div className="container flex items-center justify-between" style={{ padding: "20px 24px" }}>
         <span style={{ fontSize: 13, color: "var(--text-secondary)" }}>&copy; Susmito &middot; TAISU</span>
         <div className="flex gap-4">
-          <a href="https://github.com/susmito-d" aria-label="GitHub" style={{ color: "var(--text-secondary)" }}>
+          <a href="https://github.com/susmito-d" target="_blank" rel="noopener noreferrer" aria-label="GitHub" style={{ color: "var(--text-secondary)" }}>
             <Github size={18} />
           </a>
-          <a href="https://linkedin.com/in/susmitodatta" aria-label="LinkedIn" style={{ color: "var(--text-secondary)" }}>
+          <a href="https://linkedin.com/in/susmitodatta" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" style={{ color: "var(--text-secondary)" }}>
             <Linkedin size={18} />
           </a>
           <a href="mailto:susmitodatta@gmail.com" aria-label="Email" style={{ color: "var(--text-secondary)" }}>
