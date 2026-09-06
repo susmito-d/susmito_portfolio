@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import Image from "next/image";
 import { ChevronLeft, ChevronRight, X, Play, Music } from "lucide-react";
 
@@ -19,7 +20,12 @@ export default function MediaGallery({
   projectName: string;
 }) {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const [mounted, setMounted] = useState(false);
   const touchStartX = useRef<number | null>(null);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const close = () => setOpenIndex(null);
   const prev = () =>
@@ -127,21 +133,24 @@ export default function MediaGallery({
         ))}
       </div>
 
-      {/* Lightbox */}
-      {active && (
-        <div
-          role="dialog"
-          aria-modal="true"
-          onClick={close}
-          style={{
-            position: "fixed",
-            inset: 0,
-            zIndex: 100,
-            background: "rgba(10, 12, 18, 0.85)",
-            backdropFilter: "blur(12px)",
-            WebkitBackdropFilter: "blur(12px)",
-            display: "flex",
-            flexDirection: "column",
+      {/* Lightbox — rendered via portal so it's not trapped inside the page's
+          animated (transform) wrapper, which would otherwise break position:fixed */}
+      {active &&
+        mounted &&
+        createPortal(
+          <div
+            role="dialog"
+            aria-modal="true"
+            onClick={close}
+            style={{
+              position: "fixed",
+              inset: 0,
+              zIndex: 100,
+              background: "rgba(10, 12, 18, 0.85)",
+              backdropFilter: "blur(12px)",
+              WebkitBackdropFilter: "blur(12px)",
+              display: "flex",
+              flexDirection: "column",
             alignItems: "center",
             justifyContent: "center",
             padding: "24px",
@@ -338,7 +347,8 @@ export default function MediaGallery({
           <p style={{ color: "rgba(255,255,255,0.4)", marginTop: 12, fontSize: 12 }}>
             {(openIndex ?? 0) + 1} / {media.length}
           </p>
-        </div>
+        </div>,
+        document.body
       )}
 
       <style jsx>{`
