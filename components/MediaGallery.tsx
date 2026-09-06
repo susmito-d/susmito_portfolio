@@ -145,6 +145,7 @@ export default function MediaGallery({
             alignItems: "center",
             justifyContent: "center",
             padding: "24px",
+            overflowY: "auto",
           }}
         >
           <button
@@ -154,7 +155,7 @@ export default function MediaGallery({
             }}
             aria-label="Close"
             style={{
-              position: "absolute",
+              position: "fixed",
               top: 20,
               right: 20,
               background: "rgba(255,255,255,0.1)",
@@ -183,7 +184,7 @@ export default function MediaGallery({
                 aria-label="Previous"
                 className="lightbox-arrow lightbox-arrow-left"
                 style={{
-                  position: "absolute",
+                  position: "fixed",
                   left: 20,
                   top: "50%",
                   transform: "translateY(-50%)",
@@ -208,7 +209,7 @@ export default function MediaGallery({
                 aria-label="Next"
                 className="lightbox-arrow lightbox-arrow-right"
                 style={{
-                  position: "absolute",
+                  position: "fixed",
                   right: 20,
                   top: "50%",
                   transform: "translateY(-50%)",
@@ -237,14 +238,15 @@ export default function MediaGallery({
               position: "relative",
               width: "100%",
               maxWidth: 960,
-              maxHeight: "72vh",
+              maxHeight: "56vh",
+              flexShrink: 0,
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
             }}
           >
             {active.type === "image" && (
-              <div style={{ position: "relative", width: "100%", height: "72vh" }}>
+              <div style={{ position: "relative", width: "100%", height: "56vh", minHeight: 260 }}>
                 <Image src={active.src} alt={active.caption ?? projectName} fill style={{ objectFit: "contain" }} />
               </div>
             )}
@@ -253,7 +255,7 @@ export default function MediaGallery({
                 src={active.src}
                 controls
                 autoPlay
-                style={{ maxWidth: "100%", maxHeight: "72vh", borderRadius: 12 }}
+                style={{ maxWidth: "100%", maxHeight: "56vh", borderRadius: 12 }}
               />
             )}
             {active.type === "audio" && (
