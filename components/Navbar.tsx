@@ -84,16 +84,14 @@ export default function Navbar() {
 
       {menuOpen && (
         <nav
-          className="glass lg:hidden flex flex-col menu-float"
+          className="lg:hidden flex flex-col menu-float menu-card"
           style={{
             position: "absolute",
-            top: "100%",
-            left: 0,
-            right: 0,
-            borderTop: "1px solid var(--glass-border)",
-            padding: "8px 24px 20px",
-            gap: 4,
-            boxShadow: "0 16px 32px rgba(0,0,0,0.18)",
+            top: "calc(100% + 12px)",
+            right: 24,
+            minWidth: 180,
+            padding: "12px 8px",
+            gap: 2,
           }}
         >
           {LINKS.map((link) => (
@@ -102,7 +100,7 @@ export default function Navbar() {
               href={link.href}
               onClick={() => setMenuOpen(false)}
               className={`nav-link ${pathname === link.href ? "active" : ""}`}
-              style={{ fontSize: 16, padding: "12px 4px" }}
+              style={{ fontSize: 15, padding: "10px 16px", textAlign: "right", borderRadius: 12 }}
             >
               {link.label}
             </Link>
