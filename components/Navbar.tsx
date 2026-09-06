@@ -40,7 +40,7 @@ export default function Navbar() {
         className="container items-center"
         style={{ padding: "16px 24px", display: "grid", gridTemplateColumns: "1fr auto 1fr" }}
       >
-        <Link href="/" style={{ display: "flex", alignItems: "center", textDecoration: "none", justifySelf: "start" }} onClick={() => setMenuOpen(false)}>
+        <Link href="/" style={{ display: "flex", alignItems: "center", textDecoration: "none", justifySelf: "start", gridColumn: "1" }} onClick={() => setMenuOpen(false)}>
           <Image
             src={theme === "dark" ? "/logo/logo-white.png" : "/logo/logo-black.png"}
             alt="Susmito"
@@ -50,7 +50,7 @@ export default function Navbar() {
             style={{ height: 56, width: "auto" }}
           />
         </Link>
-        <nav className="hidden lg:flex items-center gap-8" style={{ justifySelf: "center" }}>
+        <nav className="hidden lg:flex items-center gap-8" style={{ justifySelf: "center", gridColumn: "2" }}>
           {LINKS.map((link) => (
             <Link
               key={link.href}
@@ -62,7 +62,7 @@ export default function Navbar() {
             </Link>
           ))}
         </nav>
-        <div className="flex items-center gap-3" style={{ justifySelf: "end" }}>
+        <div className="flex items-center gap-3" style={{ justifySelf: "end", gridColumn: "3" }}>
           <button
             aria-label="Toggle dark mode"
             onClick={toggleTheme}
