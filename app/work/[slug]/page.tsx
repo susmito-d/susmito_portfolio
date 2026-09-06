@@ -1,6 +1,6 @@
-import Image from "next/image";
 import { notFound } from "next/navigation";
 import { projects } from "@/lib/projects";
+import MediaGallery from "@/components/MediaGallery";
 
 export function generateStaticParams() {
   return projects.map((p) => ({ slug: p.slug }));
@@ -10,11 +10,11 @@ export default function CaseStudyPage({ params }: { params: { slug: string } }) 
   const project = projects.find((p) => p.slug === params.slug);
   if (!project) return notFound();
 
+  const media = project.media?.length ? project.media : [{ type: "image" as const, src: project.image }];
+
   return (
     <div className="container" style={{ padding: "56px 24px", maxWidth: 760 }}>
-      <div style={{ position: "relative", aspectRatio: "16 / 9", borderRadius: 20, overflow: "hidden", marginBottom: 32 }}>
-        <Image src={project.image} alt={project.name} fill style={{ objectFit: "cover" }} />
-      </div>
+      <MediaGallery media={media} projectName={project.name} />
 
       <h1 className="heading" style={{ fontSize: 32, fontWeight: 700, marginBottom: 8 }}>
         {project.name}
