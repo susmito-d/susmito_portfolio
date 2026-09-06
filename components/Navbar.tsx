@@ -84,8 +84,17 @@ export default function Navbar() {
 
       {menuOpen && (
         <nav
-          className="glass lg:hidden flex flex-col"
-          style={{ borderTop: "1px solid var(--glass-border)", padding: "8px 24px 20px", gap: 4 }}
+          className="glass lg:hidden flex flex-col menu-float"
+          style={{
+            position: "absolute",
+            top: "100%",
+            left: 0,
+            right: 0,
+            borderTop: "1px solid var(--glass-border)",
+            padding: "8px 24px 20px",
+            gap: 4,
+            boxShadow: "0 16px 32px rgba(0,0,0,0.18)",
+          }}
         >
           {LINKS.map((link) => (
             <Link
