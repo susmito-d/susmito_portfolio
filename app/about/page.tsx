@@ -1,5 +1,12 @@
 import Image from "next/image";
 import Accordion from "@/components/Accordion";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "About",
+  description:
+    "Susmito is the solo founder of TAISU, building AI/tech products from Faridpur, Bangladesh, starting with AEON SHIELD — built entirely on an Android phone with Termux and Pygame.",
+};
 
 const FAQS = [
   {
