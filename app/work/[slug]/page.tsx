@@ -1,9 +1,28 @@
 import { notFound } from "next/navigation";
+import type { Metadata } from "next";
 import { projects } from "@/lib/projects";
 import MediaGallery from "@/components/MediaGallery";
 
+const BASE_URL = "https://susmito-portfolio.vercel.app";
+
 export function generateStaticParams() {
   return projects.map((p) => ({ slug: p.slug }));
+}
+
+export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
+  const project = projects.find((p) => p.slug === params.slug);
+  if (!project) return {};
+
+  return {
+    title: project.name,
+    description: project.blurb,
+    openGraph: {
+      title: project.name,
+      description: project.blurb,
+      images: [project.image],
+      type: "article",
+    },
+  };
 }
 
 export default function CaseStudyPage({ params }: { params: { slug: string } }) {
@@ -12,14 +31,35 @@ export default function CaseStudyPage({ params }: { params: { slug: string } }) 
 
   const media = project.media?.length ? project.media : [{ type: "image" as const, src: project.image }];
 
+  const softwareJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    name: project.name,
+    applicationCategory: "Game",
+    operatingSystem: "Android, Windows, Linux",
+    description: project.blurb,
+    url: `${BASE_URL}/work/${project.slug}`,
+    image: `${BASE_URL}${project.image}`,
+    creator: { "@type": "Person", name: "Susmito", "@id": `${BASE_URL}/#person` },
+    publisher: { "@type": "Organization", name: "TAISU" },
+    ...(project.github ? { codeRepository: project.github } : {}),
+  };
+
   return (
     <div className="container" style={{ padding: "56px 24px", maxWidth: 760 }}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareJsonLd) }}
+      />
       <MediaGallery media={media} projectName={project.name} />
 
       <h1 className="heading" style={{ fontSize: 32, fontWeight: 700, marginBottom: 8 }}>
         {project.name}
       </h1>
-      <p style={{ color: "var(--accent)", marginBottom: 32 }}>{project.tag}</p>
+      <p style={{ color: "var(--accent)", marginBottom: 16 }}>{project.tag}</p>
+      <p style={{ fontSize: 16, color: "var(--text-secondary)", lineHeight: 1.7, marginBottom: 32 }}>
+        {project.blurb}
+      </p>
 
       {[
         ["Challenges", project.challenge],
