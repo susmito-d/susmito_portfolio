@@ -1,3 +1,10 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Notes",
+  description: "Notes from Susmito on building TAISU, learning to code on Android, and preparing for Dhaka University's admission exam.",
+};
+
 // Add posts here as you write them — each post can just be a new entry
 // in this array, or its own MDX file if you want longer posts later.
 const posts: { title: string; date: string; summary: string; slug: string }[] = [];
