@@ -1,6 +1,12 @@
 import Link from "next/link";
 import Image from "next/image";
 import { projects } from "@/lib/projects";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Work",
+  description: "Projects shipped by Susmito under TAISU, including AEON SHIELD — a Pygame space shooter built solo on an Android phone.",
+};
 
 export default function WorkPage() {
   return (
