@@ -1,4 +1,10 @@
 import { Github, Linkedin, Mail } from "lucide-react";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Contact",
+  description: "Get in touch with Susmito, founder of TAISU — email, GitHub, and LinkedIn.",
+};
 
 export default function ContactPage() {
   return (
